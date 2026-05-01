@@ -1,0 +1,40 @@
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background-image: url(Calm\ Gargen\ Logo.png);
+     background-size: cover;
+     background-attachment: fixed;
+     background-position: center;
+     background-color:#c0e2c0;
+     background-blend-mode: multiply;
+    color:#2F5233;
+    line-height:1.6;
+    
+}
+
+.surprise-btn{
+    display:inline-block;
+    background:linear-gradient(45deg,#FFD700,#FF69B4,#98FF98);
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    padding:18px 45px;
+    border-radius:50px;
+    text-decoration:none;
+    box-shadow:0 0 20px rgba(255,255,255,0.7);
+    animation:glow 1.5s infinite alternate;
+    transition:0.3s;
+}
+
+.surprise-btn:hover{
+    transform:scale(1.08) rotate(-2deg);
+}
+
+@keyframes glow{
+    from{
+        box-shadow:0 0 10px #fff, 0 0 20px #FFD700;
+    }
+    to{
+        box-shadow:0 0 20px #fff, 0 0 35px #FF69B4;
+    }
+}

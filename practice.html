@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calm Garden | Practice</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background-image: url(Calm\ Gargen\ Logo.png);
+     background-size: cover;
+     background-attachment: fixed;
+     background-position: center;
+     background-color:#d1e9d1;
+     background-blend-mode: multiply;
+    color:#2d5f33;
+    line-height:1.6;
+    
+}
+
+
+
+header{
+    background:#98FF98;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+}
+
+.logo-img{
+    width: 80px;
+    height:auto;
+    object-fit:contain;
+}
+
+nav a{
+    text-decoration:none;
+    color:#2F5233;
+    margin-left:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.hero{
+    text-align:center;
+    padding:70px 30px;
+}
+
+.hero h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    max-width:800px;
+    margin:auto;
+}
+
+section{
+    padding:50px 40px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:35px;
+    margin-bottom:35px;
+}
+
+.practice-box{
+    background:#F8FFF8;
+    padding:35px;
+    border-radius:20px;
+    max-width:1000px;
+    margin:auto;
+    box-shadow:0 6px 14px rgba(0,0,0,0.08);
+}
+
+.check-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:25px;
+}
+
+.check-buttons button{
+    background:#98FF98;
+    color:#2F5233;
+    border:none;
+    padding:15px 20px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.check-buttons button:hover{
+    background:#2F5233;
+    color:white;
+    transform:scale(1.05);
+}
+
+.plant-area{
+    background:#D8F3DC;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    max-width:500px;
+    margin:30px auto;
+}
+
+.plant{
+    font-size:100px;
+    transition:0.5s;
+}
+
+.plant-message{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.happy{
+    transform:scale(1.2);
+}
+
+.neutral{
+    transform:scale(1);
+}
+
+.sad{
+    transform:rotate(5deg) scale(0.9);
+    opacity:0.8;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#F8FFF8;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 12px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+audio{
+    width:100%;
+    margin-top:15px;
+}
+
+.breathing-circle{
+    width:160px;
+    height:160px;
+    background:#98FF98;
+    border-radius:50%;
+    margin:30px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    animation:breathe 5s infinite;
+}
+
+@keyframes breathe{
+    0%{
+        transform:scale(1);
+        background:#98FF98;
+    }
+    50%{
+        transform:scale(1.4);
+        background:#D8F3DC;
+    }
+    100%{
+        transform:scale(1);
+        background:#98FF98;
+    }
+}
+
+textarea{
+    width:100%;
+    height:160px;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    font-size:16px;
+    resize:none;
+    outline:none;
+    background:#F8FFF8;
+    color:#2F5233;
+}
+
+.journal-btn{
+    display:inline-block;
+    margin-top:15px;
+    background:#2F5233;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.journal-btn:hover{
+    background:#1f3a22;
+}
+
+.relax-list li{
+    list-style:none;
+    background:#F8FFF8;
+    margin:15px 0;
+    padding:18px;
+    border-radius:15px;
+}
+
+footer{
+    background:#98FF98;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+@media(max-width:768px){
+    header{
+        text-align:center;
+        justify-content:center;
+        gap:15px;
+    }
+
+    nav a{
+        margin:10px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="Calm Gargen Logo.png" alt="Calm Garden Logo" width="80" class="logo-img">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="practice.html">Practice</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Practice Your Calm 🌿</h1>
+    <p>
+        Use this page to check in with your emotions, relax your body, listen to calming sounds,
+        and help your stress plant grow stronger.
+    </p>
+</section>
+
+<section>
+    <h2 class="section-title">Daily Stress Check-In</h2>
+
+    <div class="practice-box">
+        <h3 style="text-align:center;">How stressed are you feeling today?</h3>
+
+        <div class="check-buttons">
+            <button onclick="updatePlant('veryCalm')">😌 Very calm</button>
+            <button onclick="updatePlant('okay')">🙂 Okay</button>
+            <button onclick="updatePlant('littleStressed')">😐 A little stressed</button>
+            <button onclick="updatePlant('stressed')">😟 Stressed</button>
+            <button onclick="updatePlant('veryStressed')">😫 Very stressed</button>
+        </div>
+
+        <div class="plant-area">
+            <div id="plant" class="plant">🪴</div>
+            <p id="plantMessage" class="plant-message">
+                Your plant is waiting for your check-in.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Breathing Exercise</h2>
+
+    <div class="practice-box" style="text-align:center;">
+        <p>
+            Follow the circle. When it grows, breathe in. When it shrinks, breathe out.
+        </p>
+
+        <div class="breathing-circle">
+            Breathe
+        </div>
+
+        <p>
+            Try this before exams, presentations, homework or whenever you feel overwhelmed.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Calming Sounds</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🌧️ Rain Sounds</h3>
+            <p>Gentle rain can help you relax and focus while studying.</p>
+            <audio controls loop>
+                <source src="rain.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="card">
+            <h3>🌊 Ocean Waves</h3>
+            <p>Ocean sounds can create a peaceful feeling and reduce tension.</p>
+            <audio controls loop>
+                <source src="ocean.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="card">
+            <h3>🌲 Forest Sounds</h3>
+            <p>Forest sounds can make your mind feel calm and connected to nature.</p>
+            <audio controls  loop>
+                <source src="forest.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Stress Journal</h2>
+
+    <div class="practice-box">
+        <p>
+            Write down what is causing your stress and how you are feeling.
+            This can help you understand your emotions more clearly.
+        </p>
+
+        <br>
+
+        <textarea id="journal" placeholder="Today I feel..."></textarea>
+
+        <button class="journal-btn" onclick="saveJournal()">Save Journal</button>
+
+        <p id="journalMessage" style="margin-top:15px; font-weight:bold;"></p>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Quick Relaxation Activities</h2>
+
+    <ul class="relax-list">
+        <li>🧘 Take 5 slow breaths before starting homework.</li>
+        <li>🚶 Go for a short walk after a stressful lesson.</li>
+        <li>💧 Drink water and stretch your body for 2 minutes.</li>
+        <li>👀 Look around and name 5 things you can see to ground yourself.</li>
+        <li>🤗 Speak kindly to yourself: “I am trying my best.”</li>
+    </ul>
+</section>
+
+<section>
+    <h2 class="section-title">Mystery Feature ✨</h2>
+
+    <div class="practice-box" style="text-align:center;">
+
+        <p style="font-size:22px; font-weight:bold; margin-bottom:20px;">
+            ⬇️ ⬇️ Click Me ⬇️ ⬇️
+        </p>
+
+        <a href="ai.html" class="surprise-btn">
+            ✨ Surprise ✨
+        </a>
+
+        <p style="margin-top:20px; font-style:italic;">
+            A hidden magical feature is waiting for you 🌟
+        </p>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Calm Garden | Practice Calm, Grow Stronger 💪</p>
+</footer>
+
+<script>
+function updatePlant(mood){
+    const plant = document.getElementById("plant");
+    const message = document.getElementById("plantMessage");
+
+    plant.className = "plant";
+
+    if(mood === "veryCalm"){
+        plant.textContent = "🌷";
+        plant.classList.add("happy");
+        message.textContent = "Amazing! Your plant blooms because your mind feels calm.";
+    }
+    else if(mood === "okay"){
+        plant.textContent = "🌿";
+        plant.classList.add("happy");
+        message.textContent = "Nice! Your plant grows new leaves as you stay balanced.";
+    }
+    else if(mood === "littleStressed"){
+        plant.textContent = "🪴";
+        plant.classList.add("neutral");
+        message.textContent = "Your plant is steady. Try a breathing exercise to feel better.";
+    }
+    else if(mood === "stressed"){
+        plant.textContent = "🥀";
+        plant.classList.add("sad");
+        message.textContent = "Your plant looks tired. Try calming sounds or write in your journal.";
+    }
+    else if(mood === "veryStressed"){
+        plant.textContent = "🍂";
+        plant.classList.add("sad");
+        message.textContent = "Your plant needs care. Pause, breathe slowly, and be kind to yourself.";
+    }
+}
+
+function saveJournal(){
+    const journal = document.getElementById("journal").value;
+    const message = document.getElementById("journalMessage");
+
+    if(journal.trim() === ""){
+        message.textContent = "Please write something before saving.";
+    }
+    else{
+        localStorage.setItem("calmGardenJournal", journal);
+        message.textContent = "Your journal entry has been saved 🌿";
+    }
+}
+</script>
+
+</body>
+</html>

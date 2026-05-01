@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calm Garden | AI Support</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    min-height:100vh;
+    background:#63e863;
+    background-image: url(leaves.jpg);  
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    color:#2F5233;
+}
+
+.overlay{
+    min-height:100vh;
+    background:rgba(168,207,168,0.75);
+    display:flex;
+    flex-direction:column;
+}
+
+header{
+    background:#98FF98;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+}
+
+.logo-img{
+    width:80px;
+    height:auto;
+    object-fit:contain;
+}
+
+nav a{
+    text-decoration:none;
+    color:#2F5233;
+    margin-left:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.chat-wrapper{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.chatbox{
+    width:100%;
+    max-width:650px;
+    height:650px;
+    background:#F8FFF8;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+.chat-header{
+    background:#D8F3DC;
+    padding:20px;
+    text-align:center;
+}
+
+.chat-header h1{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.chat-header p{
+    font-size:15px;
+}
+
+.chat-messages{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
+}
+
+.message{
+    padding:13px 16px;
+    border-radius:18px;
+    margin-bottom:15px;
+    max-width:80%;
+    font-size:15px;
+}
+
+.bot-message{
+    background:#D8F3DC;
+    align-self:flex-start;
+}
+
+.user-message{
+    background:#98FF98;
+    margin-left:auto;
+}
+
+.quick-prompts{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:15px;
+    background:#F8FFF8;
+    border-top:1px solid #D8F3DC;
+}
+
+.quick-prompts button{
+    background:#D8F3DC;
+    color:#2F5233;
+    border:none;
+    padding:10px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.quick-prompts button:hover{
+    background:#98FF98;
+}
+
+.chat-input-area{
+    display:flex;
+    padding:15px;
+    background:#D8F3DC;
+    gap:10px;
+}
+
+.chat-input-area input{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:25px;
+    outline:none;
+    font-size:15px;
+}
+
+.chat-input-area button{
+    background:#2F5233;
+    color:white;
+    border:none;
+    padding:14px 22px;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.chat-input-area button:hover{
+    background:#1f3a22;
+}
+
+.warning{
+    font-size:13px;
+    text-align:center;
+    padding:12px;
+    background:#fff7d6;
+    color:#6b5a00;
+}
+
+.donation-float{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    width:150px;
+    background:rgba(248,255,248,0.9);
+    border:2px solid #98FF98;
+    border-radius:25px;
+    padding:18px 12px;
+    text-align:center;
+    color:#2F5233;
+    font-weight:bold;
+    box-shadow:0 0 18px rgba(152,255,152,0.9);
+    z-index:10;
+    animation:floatDonation 3s ease-in-out infinite, glitterGlow 1.5s infinite alternate;
+}
+
+.donation-left{
+    left:25px;
+}
+
+.donation-right{
+    right:25px;
+}
+
+.donation-emoji{
+    font-size:45px;
+    animation:bounceEmoji 1.8s infinite;
+}
+
+.donation-float p{
+    font-size:15px;
+    margin:8px 0;
+}
+
+.sparkle{
+    font-size:22px;
+    animation:sparkleSpin 2s linear infinite;
+}
+
+@keyframes floatDonation{
+    0%{
+        transform:translateY(-50%) translateY(0);
+    }
+    50%{
+        transform:translateY(-50%) translateY(-18px);
+    }
+    100%{
+        transform:translateY(-50%) translateY(0);
+    }
+}
+
+@keyframes glitterGlow{
+    from{
+        box-shadow:0 0 10px #ffffff, 0 0 18px #98FF98;
+    }
+    to{
+        box-shadow:0 0 20px #ffffff, 0 0 35px #FFD700;
+    }
+}
+
+@keyframes bounceEmoji{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+@keyframes sparkleSpin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@media(max-width:900px){
+    .donation-float{
+        display:none;
+    }
+}
+
+footer{
+    background:#98FF98;
+    text-align:center;
+    padding:15px;
+}
+
+@media(max-width:768px){
+    header{
+        text-align:center;
+        justify-content:center;
+        gap:15px;
+    }
+
+    nav a{
+        margin:10px;
+    }
+
+    .chatbox{
+        height:600px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<header>
+    <div class="logo-container">
+        <img src="Calm Gargen Logo.png" alt="Calm Garden Logo" class="logo-img">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="practice.html">Practice</a>
+        <a href="ai.html">AI Support</a>
+    </nav>
+</header>
+
+<main class="chat-wrapper">
+
+    <div class="chatbox">
+
+        <div class="chat-header">
+            <h1>🌟 Calm Garden AI Support</h1>
+            <p>Share how you feel and receive calm, helpful stress-management guidance.</p>
+        </div>
+
+        <div class="warning">
+            This chatbot is for support and learning only. If you feel unsafe or overwhelmed, speak to a trusted adult, teacher or counsellor.
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hi, I’m your Calm Garden support assistant 🌿 How are you feeling today?
+            </div>
+        </div>
+
+        <div class="quick-prompts">
+            <button onclick="usePrompt('I feel stressed about school work.')">School stress</button>
+            <button onclick="usePrompt('I am worried about exams.')">Exam worry</button>
+            <button onclick="usePrompt('I feel anxious and need to calm down.')">Feeling anxious</button>
+            <button onclick="usePrompt('I need a quick relaxation activity.')">Quick relaxation</button>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Type how you feel...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+    </div>
+
+</main>
+
+<div class="donation-float donation-left">
+    <div class="sparkle">✨</div>
+    <div class="donation-emoji">🤗</div>
+    <p>Support With Donations</p>
+    <div class="sparkle">✨</div>
+</div>
+
+<div class="donation-float donation-right">
+    <div class="sparkle">✨</div>
+    <div class="donation-emoji">🤗</div>
+    <p>Support With Donations</p>
+    <div class="sparkle">✨</div>
+</div>
+
+<footer>
+    <p>© 2026 Calm Garden | AI Support for Calm Minds 🌿</p>
+</footer>
+
+</div>
+
+<script>
+const chatMessages = document.getElementById("chatMessages");
+const userInput = document.getElementById("userInput");
+
+function sendMessage(){
+    const text = userInput.value.trim();
+
+    if(text === ""){
+        return;
+    }
+
+    addMessage(text, "user-message");
+    userInput.value = "";
+
+    setTimeout(function(){
+        const reply = generateTemporaryReply(text);
+        addMessage(reply, "bot-message");
+    }, 700);
+}
+
+function addMessage(text, className){
+    const message = document.createElement("div");
+    message.className = "message " + className;
+    message.textContent = text;
+    chatMessages.appendChild(message);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function usePrompt(promptText){
+    userInput.value = promptText;
+    sendMessage();
+}
+
+function generateTemporaryReply(input){
+    const message = input.toLowerCase();
+
+    if(message.includes("exam") || message.includes("test")){
+        return "Exams can feel stressful. Try breaking revision into small 25-minute sessions, take short breaks, and practise slow breathing before you study.";
+    }
+
+    if(message.includes("homework") || message.includes("school") || message.includes("work")){
+        return "School work can feel heavy when everything comes at once. Write your tasks down, choose the easiest one first, and complete one step at a time.";
+    }
+
+    if(message.includes("anxious") || message.includes("panic") || message.includes("worried")){
+        return "Try this: breathe in for 4 seconds, hold for 2 seconds, and breathe out for 6 seconds. Then name 5 things you can see around you.";
+    }
+    if(message.includes("suicide") || message.includes("kill") || message.includes("suicidal")){
+        return `I'm really sorry you're feeling this way right now. You don't have to go through this alone. Every life matters, and support is available right now.
+
+        Please reach out immediately to someone you trust — a friend, family member, counselor, or mental health professional.
+
+If you feel you may act on these thoughts, call your local emergency number or go to the nearest hospital now.
+
+Stay with someone if possible, and move away from anything you could use to hurt yourself or others.`;
+    }
+
+    if(message.includes("sad") || message.includes("tired")){
+        return "I’m sorry you’re feeling this way. Take a gentle pause, drink some water, and consider writing your feelings in the journal section.";
+    }
+
+    return "Thank you for sharing. A helpful first step is to pause, breathe slowly, and ask yourself: What is one small thing I can do right now to feel a little better?";
+}
+
+userInput.addEventListener("keypress", function(event){
+    if(event.key === "Enter"){
+        sendMessage();
+    }
+});
+
+
+async function askOpenAI(userMessage) {
+    try {
+        const response = await fetch("http://localhost:3000/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: userMessage
+            })
+        });
+
+        const data = await response.json();
+        return data.reply;
+
+    } catch (error) {
+        return "Sorry, I couldn't connect right now. Please try again later.";
+    }
+}
+
+const oldSendMessage = sendMessage;
+
+sendMessage = async function () {
+    const text = userInput.value.trim();
+
+    if (text === "") return;
+
+    addMessage(text, "user-message");
+    userInput.value = "";
+
+    addMessage("Thinking... 🌿", "bot-message loading");
+
+    const reply = await askOpenAI(text);
+
+    const loading = document.querySelector(".loading");
+    if (loading) loading.remove();
+
+    addMessage(reply, "bot-message");
+};
+</script>
+
+</body>
+</html>
