@@ -367,7 +367,7 @@ footer{
 <script>
 const chatMessages = document.getElementById("chatMessages");
 const userInput = document.getElementById("userInput");
-
+const API_URL = "https://isteamo-project.onrender.com/chat";
 function sendMessage(){
     const text = userInput.value.trim();
 
@@ -437,7 +437,7 @@ userInput.addEventListener("keypress", function(event){
 
 async function askOpenAI(userMessage) {
     try {
-        const response = await fetch("http://localhost:3000/chat", {
+        const response = await fetch("http://localhost:3000", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
