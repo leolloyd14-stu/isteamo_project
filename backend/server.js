@@ -10,7 +10,20 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 
-app.use(cors());
+const rateLimit = require("express-rate-limit");
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30, // 30 requests per 15 min per IP
+  message: { reply: "Too many requests. Please try again later." }
+});
+
+app.use("/chat", limiter);
+
+app.use(cors({
+  origin: "https://leolloyd14-stu.github.io/isteamo_project/"
+}));
+
 app.use(express.json());
 
 const client = new OpenAI({

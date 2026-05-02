@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calm Garden | AI Support</title>
-
+<link rel="icon" type="image/png" href="Calm Gargen Logo.png">
 <style>
 *{
     margin:0;
@@ -298,7 +298,7 @@ footer{
 
 <header>
     <div class="logo-container">
-        <img src="Calm Gargen Logo.png" alt="Calm Garden Logo" class="logo-img">
+        <img src="Calm Gargen Logo.png" alt="Calm Garden Logo" class="logo-img"> Calm Garden 
     </div>
 
     <nav>
@@ -422,6 +422,12 @@ async function sendMessage(){
         console.error("Frontend connection error:", error);
         addMessage("Sorry, I couldn't connect right now. Please try again later.", "bot-message");
     }
+    res.status(500).json({
+  reply: "Sorry, something went wrong. Please try again later."
+});
+if(message.length > 1000){
+  return res.status(400).json({ reply: "Message too long." });
+}
 }
 
 userInput.addEventListener("keypress", function(event){
