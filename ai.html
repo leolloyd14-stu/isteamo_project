@@ -367,8 +367,24 @@ footer{
 <script>
 const chatMessages = document.getElementById("chatMessages");
 const userInput = document.getElementById("userInput");
+
 const API_URL = "https://isteamo-project.onrender.com/chat";
-function sendMessage(){
+
+function addMessage(text, className){
+    const message = document.createElement("div");
+    message.className = "message " + className;
+    message.textContent = text;
+    chatMessages.appendChild(message);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return message;
+}
+
+function usePrompt(promptText){
+    userInput.value = promptText;
+    sendMessage();
+}
+
+async function sendMessage(){
     const text = userInput.value.trim();
 
     if(text === ""){
@@ -378,54 +394,34 @@ function sendMessage(){
     addMessage(text, "user-message");
     userInput.value = "";
 
-    setTimeout(function(){
-        const reply = generateTemporaryReply(text);
-        addMessage(reply, "bot-message");
-    }, 700);
-}
+    const loadingBubble = addMessage("Thinking calmly... 🌿", "bot-message loading-message");
 
-function addMessage(text, className){
-    const message = document.createElement("div");
-    message.className = "message " + className;
-    message.textContent = text;
-    chatMessages.appendChild(message);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
+    try{
+        const response = await fetch(API_URL, {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                message:text
+            })
+        });
 
-function usePrompt(promptText){
-    userInput.value = promptText;
-    sendMessage();
-}
+        const data = await response.json();
 
-function generateTemporaryReply(input){
-    const message = input.toLowerCase();
+        loadingBubble.remove();
 
-    if(message.includes("exam") || message.includes("test")){
-        return "Exams can feel stressful. Try breaking revision into small 25-minute sessions, take short breaks, and practise slow breathing before you study.";
+        if(data.reply){
+            addMessage(data.reply, "bot-message");
+        }else{
+            addMessage("I could not get a reply. Please try again.", "bot-message");
+        }
+
+    }catch(error){
+        loadingBubble.remove();
+        console.error("Frontend connection error:", error);
+        addMessage("Sorry, I couldn't connect right now. Please try again later.", "bot-message");
     }
-
-    if(message.includes("homework") || message.includes("school") || message.includes("work")){
-        return "School work can feel heavy when everything comes at once. Write your tasks down, choose the easiest one first, and complete one step at a time.";
-    }
-
-    if(message.includes("anxious") || message.includes("panic") || message.includes("worried")){
-        return "Try this: breathe in for 4 seconds, hold for 2 seconds, and breathe out for 6 seconds. Then name 5 things you can see around you.";
-    }
-    if(message.includes("suicide") || message.includes("kill") || message.includes("suicidal")){
-        return `I'm really sorry you're feeling this way right now. You don't have to go through this alone. Every life matters, and support is available right now.
-
-        Please reach out immediately to someone you trust — a friend, family member, counselor, or mental health professional.
-
-If you feel you may act on these thoughts, call your local emergency number or go to the nearest hospital now.
-
-Stay with someone if possible, and move away from anything you could use to hurt yourself or others.`;
-    }
-
-    if(message.includes("sad") || message.includes("tired")){
-        return "I’m sorry you’re feeling this way. Take a gentle pause, drink some water, and consider writing your feelings in the journal section.";
-    }
-
-    return "Thank you for sharing. A helpful first step is to pause, breathe slowly, and ask yourself: What is one small thing I can do right now to feel a little better?";
 }
 
 userInput.addEventListener("keypress", function(event){
@@ -434,46 +430,9 @@ userInput.addEventListener("keypress", function(event){
     }
 });
 
-
-async function askOpenAI(userMessage) {
-    try {
-        const response = await fetch("http://localhost:3000", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                message: userMessage
-            })
-        });
-
-        const data = await response.json();
-        return data.reply;
-
-    } catch (error) {
-        return "Sorry, I couldn't connect right now. Please try again later.";
-    }
-}
-
-const oldSendMessage = sendMessage;
-
-sendMessage = async function () {
-    const text = userInput.value.trim();
-
-    if (text === "") return;
-
-    addMessage(text, "user-message");
-    userInput.value = "";
-
-    addMessage("Thinking... 🌿", "bot-message loading");
-
-    const reply = await askOpenAI(text);
-
-    const loading = document.querySelector(".loading");
-    if (loading) loading.remove();
-
-    addMessage(reply, "bot-message");
-};
+window.addEventListener("load", function(){
+    userInput.focus();
+});
 </script>
 
 </body>
