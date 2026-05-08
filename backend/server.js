@@ -35,8 +35,15 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chat", async (req, res) => {
-    try {
+    try 
         const { message } = req.body;
+
+        const sessionMemory = new Map();
+});        
+
+app.post("/chat", async (req, res) => {
+    try {
+        const { message, sessionId } = req.body;
 
         if (!message || message.trim() === "") {
             return res.status(400).json({
@@ -44,31 +51,61 @@ app.post("/chat", async (req, res) => {
             });
         }
 
+        if (!sessionId) {
+            return res.status(400).json({
+                reply: "Missing session ID."
+            });
+        }
+
+        if (!sessionMemory.has(sessionId)) {
+            sessionMemory.set(sessionId, []);
+        }
+
+        const history = sessionMemory.get(sessionId);
+
+        history.push({
+            role: "user",
+            content: message
+        });
+
         const response = await client.responses.create({
             model: "gpt-4.1-mini",
-            input: `
+            input: [
+                {
+                    role: "system",
+                    content: `
 You are Calm Garden AI, a kind stress-management assistant for students.
+You remember the conversation only during this current session.
 Give supportive, practical advice about school stress, exams, anxiety, relaxation, journaling and wellbeing.
 Keep answers short, calm and easy to understand.
 Do not diagnose medical conditions.
 If the user sounds unsafe or in danger, tell them to speak to a trusted adult, teacher, counsellor or emergency support immediately.
-
-Student message: ${message}
 `
+                },
+                ...history
+            ]
         });
 
+        const aiReply = response.output_text;
+
+        history.push({
+            role: "assistant",
+            content: aiReply
+        });
+
+        if (history.length > 12) {
+            sessionMemory.set(sessionId, history.slice(-12));
+        }
+
         res.json({
-            reply: response.output_text
+            reply: aiReply
         });
 
     } catch (error) {
-        console.error(error);
+        console.error("OPENAI ERROR:", error);
+
         res.status(500).json({
             reply: "Sorry, something went wrong. Please try again later."
         });
     }
-});
-
-app.listen(PORT, () => {
-    console.log(`Calm Garden server running on port ${PORT}`);
 });

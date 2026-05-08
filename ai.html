@@ -372,6 +372,13 @@ const userInput = document.getElementById("userInput");
 
 const API_URL = "https://isteamo-project.onrender.com/chat";
 
+let sessionId = sessionStorage.getItem("calmGardenSessionId");
+
+if (!sessionId) {
+    sessionId = crypto.randomUUID();
+    sessionStorage.setItem("calmGardenSessionId", sessionId);
+}
+
 function addMessage(text, className){
     const message = document.createElement("div");
     message.className = "message " + className;
@@ -405,7 +412,8 @@ async function sendMessage(){
                 "Content-Type":"application/json"
             },
             body:JSON.stringify({
-                message:text
+                message:text,
+                sessionId:sessionId
             })
         });
 
@@ -421,15 +429,8 @@ async function sendMessage(){
 
     }catch(error){
         loadingBubble.remove();
-        console.error("Frontend connection error:", error);
         addMessage("Sorry, I couldn't connect right now. Please try again later.", "bot-message");
     }
-    res.status(500).json({
-  reply: "Sorry, something went wrong. Please try again later."
-});
-if(message.length > 1000){
-  return res.status(400).json({ reply: "Message too long." });
-}
 }
 
 userInput.addEventListener("keypress", function(event){
