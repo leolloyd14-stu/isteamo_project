@@ -2,44 +2,42 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const OpenAI = require("openai");
-
+const rateLimit = require("express-rate-limit");
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+app.use(cors({
+    origin: "https://leolloyd14-stu.github.io/isteamo_project/"
+}));
 
-const rateLimit = require("express-rate-limit");
+app.use(express.json());
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 30, // 30 requests per 15 min per IP
-  message: { reply: "Too many requests. Please try again later." }
+    windowMs: 15 * 60 * 1000,
+    max: 30,
+    message: {
+        reply: "Too many requests. Please try again later."
+    }
 });
 
 app.use("/chat", limiter);
 
-app.use(cors({
-  origin: "https://leolloyd14-stu.github.io/isteamo_project/"
-}));
-
-app.use(express.json());
+if (!process.env.OPENAI_API_KEY) {
+    console.error("Missing OPENAI_API_KEY");
+}
 
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
 
+const sessionMemory = new Map();
+
 app.get("/", (req, res) => {
     res.send("Calm Garden backend is running 🌿");
 });
-
-app.post("/chat", async (req, res) => {
-    try 
-        const { message } = req.body;
-
-        const sessionMemory = new Map();
-});        
 
 app.post("/chat", async (req, res) => {
     try {
@@ -102,10 +100,14 @@ If the user sounds unsafe or in danger, tell them to speak to a trusted adult, t
         });
 
     } catch (error) {
-        console.error("OPENAI ERROR:", error);
+        console.error("OPENAI ERROR:", error.message);
 
         res.status(500).json({
             reply: "Sorry, something went wrong. Please try again later."
         });
     }
+});
+
+app.listen(PORT, () => {
+    console.log(`Calm Garden server running on port ${PORT}`);
 });
