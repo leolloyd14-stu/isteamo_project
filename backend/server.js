@@ -9,6 +9,23 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+const allowedOrigins = [
+    "https://leolloyd14-stu.github.io/isteamo_project/",
+    
+];
+
+app.use(cors({
+    origin: function(origin, callback){
+        if(!origin || allowedOrigins.includes(origin)){
+            callback(null, true);
+        }else{
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
 const limiter = rateLimit({
