@@ -9,10 +9,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-app.use(cors({
-    origin: "https://leolloyd14-stu.github.io/isteamo_project/"
-}));
-
 app.use(express.json());
 
 const limiter = rateLimit({
