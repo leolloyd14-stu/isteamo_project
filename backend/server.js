@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 const allowedOrigins = [
-    "https://leolloyd14-stu.github.io/isteamo_project/",
+    "https://leolloyd14-stu.github.io",
     
 ];
 
