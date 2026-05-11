@@ -43,6 +43,7 @@ app.get("/", (req, res) => {
 
 app.post("/chat", async (req, res) => {
     try {
+        console.log("Using model: gpt-5-mini");
         const { message, sessionId } = req.body;
 
         if (!message || message.trim() === "") {
@@ -67,7 +68,7 @@ app.post("/chat", async (req, res) => {
             role: "user",
             content: message
         });
-console.log("Using model: gpt-5-mini");
+
         const response = await client.responses.create({
             model: "gpt-5-mini",
             input: [
