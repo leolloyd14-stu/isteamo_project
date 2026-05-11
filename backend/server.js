@@ -70,7 +70,7 @@ app.post("/chat", async (req, res) => {
         });
 
         const response = await client.responses.create({
-            model: "gpt-4.1-mini",
+            model: "gpt-5-mini",
             input: [
                 {
                     role: "system",
