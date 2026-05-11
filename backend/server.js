@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 
 app.post("/chat", async (req, res) => {
     try {
-        console.log("Using model: gpt-5-mini");
+        console.log("Using model: gpt-5.4-mini");
         const { message, sessionId } = req.body;
 
         if (!message || message.trim() === "") {
