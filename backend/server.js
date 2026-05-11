@@ -9,7 +9,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-
 app.use(cors({
     origin: "https://leolloyd14-stu.github.io",
     methods: ["GET", "POST", "OPTIONS"],
@@ -68,7 +67,7 @@ app.post("/chat", async (req, res) => {
             role: "user",
             content: message
         });
-
+console.log("Using model: gpt-5-mini");
         const response = await client.responses.create({
             model: "gpt-5-mini",
             input: [
