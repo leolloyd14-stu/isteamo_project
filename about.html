@@ -5,308 +5,183 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calm Garden | About Us</title>
 <link rel="icon" type="image/png" href="Calm Gargen Logo.png">
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background-image: url(Calm\ Gargen\ Logo.png);
-     background-size: cover;
-     background-attachment: fixed;
-     background-position: center;
-     background-color:#d4ebd4;
-     background-blend-mode: multiply;
-    color:#2F5233;
-    line-height:1.6;
-    
-}
-
-header{
-    background:#98FF98;
-    padding:20px 50px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
-
-.logo{
-    font-size:30px;
-    font-weight:bold;
-}
-
-nav a{
-    text-decoration:none;
-    color:#2F5233;
-    margin-left:20px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:white;
-}
-
-.hero{
-    padding:80px 40px;
-    text-align:center;
-}
-
-.hero h1{
-    font-size:48px;
-    margin-bottom:20px;
-}
-
-.hero p{
-    max-width:850px;
-    margin:auto;
-    font-size:20px;
-}
-
-section{
-    padding:50px 40px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:35px;
-    margin-bottom:35px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#F8FFF8;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 5px 12px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card h3{
-    margin-bottom:15px;
-}
-
-.about-box{
-    background:#D8F3DC;
-    padding:35px;
-    border-radius:20px;
-    max-width:1000px;
-    margin:auto;
-    box-shadow:0 6px 14px rgba(0,0,0,0.08);
-}
-
-.names{
-    text-align:center;
-}
-
-.name-card{
-    background:#F8FFF8;
-    padding:30px;
-    border-radius:20px;
-    margin:20px auto;
-    max-width:650px;
-    box-shadow:0 5px 12px rgba(0,0,0,0.08);
-}
-
-.btn{
-    display:inline-block;
-    background:#2F5233;
-    color:white;
-    padding:15px 30px;
-    text-decoration:none;
-    border-radius:30px;
-    margin-top:20px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#1f3a22;
-}
-
-.thought-box{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    max-width:900px;
-    margin:auto;
-    font-style:italic;
-    text-align:center;
-    box-shadow:0 5px 12px rgba(0,0,0,0.08);
-}
-
-footer{
-    background:#98FF98;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-
-@media(max-width:768px){
-    .hero h1{
-        font-size:38px;
-    }
-
-    header{
-        text-align:center;
-        justify-content:center;
-        gap:15px;
-    }
-
-    nav a{
-        margin:10px;
-    }
-}
-</style>
+<link rel="stylesheet" href="css/dashboard.css">
 </head>
-
 <body>
+<div class="app-shell">
+<aside class="sidebar">
+  <a class="brand" href="index.html" aria-label="Calm Garden home">
+    <img src="Calm Gargen Logo.png" alt="Calm Garden Logo">
+    <span>
+      <span class="brand-title">Calm Garden</span><br>
+      <span class="brand-subtitle">Stress less, grow more</span>
+    </span>
+  </a>
 
-<header>
-    <div class="logo"  style="display: flex; align-items: center; justify-content: center; gap: 10px;"> <img src="Calm Gargen Logo.png" alt="Calm Garden Logo" width="80"><nav><a href="index.html"><span>Calm Garden</span></a></nav></div>
+  <div class="nav-label">Garden Menu</div>
+  <nav class="nav-menu" aria-label="Main navigation">
+    <a class="nav-link " href="index.html">🏡 Home</a>
+    <a class="nav-link " href="practice.html">🌿 Practice</a>
+    <a class="nav-link " href="ai.html">✨ AI Support</a>
+    <a class="nav-link active" href="about.html">💚 About Us</a>
+  </nav>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="practice.html">Practice</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>About Calm Garden</h1>
-    <p>
-        Calm Garden is a peaceful stress management website created to help students understand their emotions,
-        manage school pressure and build healthier habits through calming activities, reflection and a virtual plant.
-    </p>
-</section>
-
-<section>
-    <h2 class="section-title">Our Purpose</h2>
-
-    <div class="about-box">
-        <p>
-            The main goal of Calm Garden is to make stress management simple, visual and encouraging.
-            Instead of only reading about stress, users can interact with a virtual plant that represents
-            their mental wellbeing. When users practise healthy coping techniques, their plant becomes healthier,
-            showing progress in a calm and motivating way.
-        </p>
+  <div class="sidebar-note">
+    <div class="plant-mini">🪴</div>
+    <h3>Care reminder</h3>
+    <p>Small peaceful actions every day help your mind grow stronger.</p>
+  </div>
+</aside>
+<main class="main-content">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">About the project</p>
+      <h1 class="page-title">About Calm Garden</h1>
+      <p class="page-subtitle">A student-focused stress management website built to make emotional wellbeing feel simple, visual, and encouraging.</p>
     </div>
-</section>
+    <div class="status-pill">Live MVP</div>
+  </header>
 
-<section>
-    <h2 class="section-title">How Calm Garden Helps You</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>😌 Understand Your Feelings</h3>
-            <p>Daily check-ins help users recognise their stress levels and become more aware of their emotions.</p>
-        </div>
-
-        <div class="card">
-            <h3>🌬️ Calm Your Mind</h3>
-            <p>Breathing exercises and relaxation tools help reduce tension, anxiety and school-related stress.</p>
-        </div>
-
-        <div class="card">
-            <h3>📓 Express Your Thoughts</h3>
-            <p>The stress journal gives users a safe space to write about worries, feelings and challenges.</p>
-        </div>
-
-        <div class="card">
-            <h3>🌱 Build Healthy Habits</h3>
-            <p>By practising regularly, users develop better routines for managing pressure in school and daily life.</p>
-        </div>
+  <section class="card welcome-card">
+    <div>
+      <p class="eyebrow">Our purpose</p>
+      <h1>Helping students stress less and grow more.</h1>
+      <p>Calm Garden helps students understand their emotions, manage school pressure, and build healthier habits through calming activities, reflection, AI support, and a virtual plant.</p>
     </div>
-</section>
-
-<section>
-    <h2 class="section-title">Inspiration Behind This Project</h2>
-
-    <div class="about-box">
-        <p>
-            Calm Garden was inspired by the idea that mental health can grow like a plant.
-            Just as plants need water, sunlight and care, our minds need rest, support and healthy habits.
-            This project uses nature, soft colours and simple psychology-based activities to make stress management
-            feel less overwhelming and more enjoyable.
-        </p>
+    <div class="action-row">
+      <a class="btn primary" href="practice.html">Try the Practice Page</a>
+      <a class="btn secondary" href="ai.html">Open AI Support</a>
     </div>
-</section>
+  </section>
 
-<section class="names">
-    <h2 class="section-title">Project Workforce</h2>
+  <section class="card">
+    <h2>Our Purpose</h2>
+    <p>The main goal of Calm Garden is to make stress management simple, visual, and encouraging. Instead of only reading about stress, users can interact with a virtual plant that represents their mental wellbeing. When users practise healthy coping techniques, their plant becomes healthier, showing progress in a calm and motivating way.</p>
+  </section>
 
-    <div class="name-card">
-        <h3>✨ Project Inspiration ✨</h3>
-        <p><strong> Dezmund </strong></p>
-        <p>👨‍🏫Psychology Teacher</p>
-        <p>
-            Provided the psychology inspiration behind the project and helped shape the idea of using
-            stress regulation techniques to support student wellbeing.
-        </p>
+  <section>
+    <div class="section-heading">
+      <div>
+        <h2>How Calm Garden Helps You</h2>
+        <p>Wellbeing tools arranged in a friendly dashboard experience.</p>
+      </div>
     </div>
 
-    <div class="name-card">
-        <h3>💻 Behind the Coding 💻</h3>
+    <div class="grid">
+      <article class="card feature-card">
+        <div class="feature-icon">😌</div>
+        <h3>Understand Your Feelings</h3>
+        <p>Daily check-ins help users recognise their stress levels and become more aware of their emotions.</p>
+      </article>
+
+      <article class="card feature-card">
+        <div class="feature-icon">🌬️</div>
+        <h3>Calm Your Mind</h3>
+        <p>Breathing exercises and relaxation tools help reduce tension, anxiety, and school-related stress.</p>
+      </article>
+
+      <article class="card feature-card">
+        <div class="feature-icon">📓</div>
+        <h3>Express Your Thoughts</h3>
+        <p>The stress journal gives users a safe space to write about worries, feelings, and challenges.</p>
+      </article>
+
+      <article class="card feature-card">
+        <div class="feature-icon">🌱</div>
+        <h3>Build Healthy Habits</h3>
+        <p>By practising regularly, users develop better routines for managing pressure in school and daily life.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Inspiration Behind This Project</h2>
+    <p>Calm Garden was inspired by the idea that mental health can grow like a plant. Just as plants need water, sunlight, and care, our minds need rest, support, and healthy habits. This project uses nature, soft colours, and simple psychology-based activities to make stress management feel less overwhelming and more enjoyable.</p>
+  </section>
+
+  <section>
+    <div class="section-heading">
+      <div>
+        <h2>Project Workforce</h2>
+        <p>The people behind the idea and build.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="feature-icon">✨</div>
+        <h3>Project Inspiration</h3>
+        <p><strong>Dezmund</strong></p>
+        <p>Psychology Teacher who provided the psychology inspiration behind the project and helped shape the idea of using stress regulation techniques to support student wellbeing.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-icon">💻</div>
+        <h3>Behind the Coding</h3>
         <p><strong>Lloyd Adjei Mensah</strong></p>
-        <p>🧑‍🎓Year 10 Student</p>
-        <p>
-            Designed and developed the website idea, layout and coding structure for Calm Garden.
-        </p>
+        <p>Year 10 Student who designed and developed the website idea, layout, and coding structure for Calm Garden.</p>
+      </article>
     </div>
-</section>
+  </section>
 
-<section>
-    <h2 class="section-title"> Calm Garden Message </h2>
+  <section class="card soft">
+    <h2>Calm Garden Message</h2>
+    <p><em>“When you care for your mind, your life begins to grow differently. Calm Garden reminds us that small peaceful actions can create big emotional changes.”</em></p>
+  </section>
 
-    <div class="thought-box">
-        <p>
-            “When you care for your mind, your life begins to grow differently.
-            Calm Garden reminds us that small peaceful actions can create big emotional changes.”
-        </p>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">How You Can Support This Project 🤗</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>🤝 Share the Website</h3>
-            <p>Tell other students, teachers and friends about Calm Garden so more people can benefit from it.</p>
-        </div>
-
-        <div class="card">
-            <h3>💡 Give Feedback</h3>
-            <p>Suggest new features, calming activities or design ideas to help improve the project.</p>
-        </div>
-
-        <div class="card">
-            <h3>💚 Donations 🤗</h3>
-            <p>Donations can help support future improvements, better features, animations and learning resources.</p>
-        </div>
+  <section>
+    <div class="section-heading">
+      <div>
+        <h2>How You Can Support This Project 🤗</h2>
+        <p>Help the garden reach more students.</p>
+      </div>
     </div>
 
-    <div style="text-align:center;">
-        <a href="practice.html" class="btn">Try the Practice Page</a>
-    </div>
-</section>
+    <div class="grid">
+      <article class="card">
+        <div class="feature-icon">🤝</div>
+        <h3>Share the Website</h3>
+        <p>Tell other students, teachers, and friends about Calm Garden so more people can benefit from it.</p>
+      </article>
 
-<footer>
-    <p>© 2026 Calm Garden | Created to Help Students Stress Less and Grow More 💗</p>
-</footer>
+      <article class="card">
+        <div class="feature-icon">💡</div>
+        <h3>Give Feedback</h3>
+        <p>Suggest new features, calming activities, or design ideas to help improve the project.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-icon">💚</div>
+        <h3>Donations</h3>
+        <p>Donations can help support future improvements, better features, animations, and learning resources.</p>
+      </article>
+    </div>
+  </section>
+  <p class="footer">© 2026 Calm Garden | Stress Less, Grow More 🌿</p>
+</main>
+<aside class="right-panel" aria-label="Support panel">
+  <div class="check-panel">
+    <p class="eyebrow">Quick check-in</p>
+    <h3>How are you feeling?</h3>
+    <div class="mood-options">
+      <button class="mood-chip" type="button">😌 Calm</button>
+      <button class="mood-chip" type="button">🙂 Okay</button>
+      <button class="mood-chip" type="button">😟 Stressed</button>
+    </div>
+  </div>
+
+  <div class="tip-card">
+    <h3>Today’s calm tip</h3>
+    <p>Take one slow breath before starting a task. It helps your brain feel safer and more focused.</p>
+  </div>
+
+  <div class="donation-card">
+    <div class="emoji">🤗</div>
+    <h3>Support With Donations</h3>
+    <p>Your support can help Calm Garden grow with better resources and features.</p>
+  </div>
+</aside>
+</div>
 
 </body>
 </html>

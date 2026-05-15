@@ -4,298 +4,172 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calm Garden | Home</title>
-
-  <link rel="icon" type="image/png" href="Calm Gargen Logo.png">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background-image: url(Calm\ Gargen\ Logo.png);
-     background-size: cover;
-     background-attachment: fixed;
-     background-position: center;
-     background-color:#d4ebd4;
-     background-blend-mode: multiply;
-    color:#2F5233;
-    line-height:1.6;
-    
-}
-
-
-header{
-    background:#98FF98;
-    padding:20px 50px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
-
-.logo{
-    font-size:30px;
-    font-weight:bold;
-}
-
-nav a{
-    text-decoration:none;
-    color:#2F5233;
-    margin-left:20px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:white;
-}
-
-.hero{
-    min-height:90vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.hero-text{
-    max-width:550px;
-}
-
-.hero-text h1{
-    font-size:50px;
-    margin-bottom:20px;
-}
-
-.hero-text p{
-    font-size:20px;
-    margin-bottom:20px;
-}
-
-.btn{
-    display:inline-block;
-    background:#2F5233;
-    color:white;
-    padding:15px 30px;
-    text-decoration:none;
-    border-radius:30px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#1f3a22;
-}
-
-.plant-box{
-    background:#D8F3DC;
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    width:300px;
-    box-shadow:0 8px 15px rgba(0,0,0,0.1);
-    animation:float 3s ease-in-out infinite;
-}
-
-.plant{
-    font-size:90px;
-}
-
-section{
-    padding:60px 40px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:35px;
-    margin-bottom:40px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#F8FFF8;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 10px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card h3{
-    margin-bottom:15px;
-}
-
-.school-list{
-    max-width:900px;
-    margin:auto;
-}
-
-.school-list li{
-    background:white;
-    margin:15px 0;
-    padding:18px;
-    border-radius:12px;
-    list-style:none;
-}
-
-footer{
-    background:#98FF98;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
-}
-
-@media(max-width:768px){
-    .hero-text h1{
-        font-size:38px;
-    }
-
-    header{
-        text-align:center;
-        justify-content:center;
-        gap:15px;
-    }
-
-    nav a{
-        margin:10px;
-    }
-}
-</style>
+<link rel="icon" type="image/png" href="Calm Gargen Logo.png">
+<link rel="stylesheet" href="css/dashboard.css">
 </head>
-
 <body>
+<div class="app-shell">
+<aside class="sidebar">
+  <a class="brand" href="index.html" aria-label="Calm Garden home">
+    <img src="Calm Gargen Logo.png" alt="Calm Garden Logo">
+    <span>
+      <span class="brand-title">Calm Garden</span><br>
+      <span class="brand-subtitle">Stress less, grow more</span>
+    </span>
+  </a>
 
-<header>
-    <div class="logo"  style="display: flex; align-items: center; justify-content: center; gap: 10px;"> <img src="Calm Gargen Logo.png" alt="Calm Garden Logo" width="80"><nav><a href="index.html"><span>Calm Garden</span></a></nav></div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="practice.html">Practice</a>
-    </nav>
-</header>
+  <div class="nav-label">Garden Menu</div>
+  <nav class="nav-menu" aria-label="Main navigation">
+    <a class="nav-link active" href="index.html">🏡 Home</a>
+    <a class="nav-link " href="practice.html">🌿 Practice</a>
+    <a class="nav-link " href="ai.html">✨ AI Support</a>
+    <a class="nav-link " href="about.html">💚 About Us</a>
+  </nav>
 
-<section class="hero">
+  <div class="sidebar-note">
+    <div class="plant-mini">🪴</div>
+    <h3>Care reminder</h3>
+    <p>Small peaceful actions every day help your mind grow stronger.</p>
+  </div>
+</aside>
+<main class="main-content">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Student wellness dashboard</p>
+      <h1 class="page-title">Welcome back to Calm Garden</h1>
+      <p class="page-subtitle">A peaceful place to manage school stress, practise calming habits, and grow your virtual plant.</p>
+    </div>
+    <div class="status-pill">Live MVP</div>
+  </header>
 
-<div class="hero-text">
-    <h1>Welcome to Calm Garden</h1>
+  <section class="hero-grid">
+    <div class="card welcome-card">
+      <div>
+        <p class="eyebrow">Your calm space</p>
+        <h1>Grow your mind like a garden.</h1>
+        <p>Use check-ins, breathing, journaling, calming sounds, and AI support to handle school pressure one peaceful step at a time.</p>
+      </div>
+      <div class="action-row">
+        <a class="btn primary" href="practice.html">Start Practicing 🌿</a>
+        <a class="btn secondary" href="ai.html">Talk to AI Support ✨</a>
+      </div>
+    </div>
 
-    <p>
-        A peaceful stress management website designed to help students
-        understand, reduce and manage stress using simple daily techniques.
-        Grow your virtual plant as your mind becomes healthier.
-    </p>
+    <div class="card plant-card soft">
+      <p class="eyebrow">Virtual plant</p>
+      <div class="big-plant">🪴</div>
+      <h2>Your Stress Plant</h2>
+      <p>Take care of your mind and watch your garden grow.</p>
+    </div>
+  </section>
 
-    <p>
-        Whether school pressure, exams, assignments or personal stress,
-        Calm Garden helps you stay balanced and focused.
-    </p>
+  <section class="metric-row" aria-label="Calm Garden highlights">
+    <div class="metric"><strong>5</strong><span>Check-in moods</span></div>
+    <div class="metric"><strong>3</strong><span>Calming sounds</span></div>
+    <div class="metric"><strong>24/7</strong><span>AI support page</span></div>
+  </section>
 
-    <a href="practice.html" class="btn">Start Practicing</a>
+  <section>
+    <div class="section-heading">
+      <div>
+        <h2>How Calm Garden Helps You</h2>
+        <p>Simple tools for school stress, exams, assignments, and daily pressure.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="card feature-card">
+        <div class="feature-icon">😌</div>
+        <h3>Daily Stress Check-In</h3>
+        <p>Track how stressed you feel and understand your emotions better.</p>
+      </article>
+
+      <article class="card feature-card">
+        <div class="feature-icon">🌬️</div>
+        <h3>Breathing Exercises</h3>
+        <p>Use guided breathing to calm anxiety before class, tests, or presentations.</p>
+      </article>
+
+      <article class="card feature-card">
+        <div class="feature-icon">📓</div>
+        <h3>Stress Journal</h3>
+        <p>Write thoughts, worries, and feelings to release emotional pressure.</p>
+      </article>
+
+      <article class="card feature-card">
+        <div class="feature-icon">🎵</div>
+        <h3>Relaxing Sounds</h3>
+        <p>Listen to rain, ocean, or forest sounds while studying or resting.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="card list-card">
+    <h2>Stress Management Techniques for School</h2>
+    <ul>
+      <li>📚 Break assignments into smaller tasks to reduce overwhelm.</li>
+      <li>🧘 Take 5-minute breathing breaks between study sessions.</li>
+      <li>⏰ Use a timetable to organise homework and deadlines.</li>
+      <li>💧 Stay hydrated and eat healthy meals during busy school days.</li>
+      <li>😴 Get enough sleep before exams for better concentration.</li>
+      <li>🚶 Take short walks after class to clear your mind.</li>
+      <li>🤝 Talk to teachers, friends or family when feeling stressed.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-heading">
+      <div>
+        <h2>Grow With Every Step 🌱</h2>
+        <p>Your progress can feel small, but every calm action matters.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="feature-icon">🌱</div>
+        <h3>Beginner</h3>
+        <p>Start with one healthy habit daily.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-icon">🌷</div>
+        <h3>Progress</h3>
+        <p>Your plant blooms as you stay consistent.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-icon">🌳</div>
+        <h3>Thrive</h3>
+        <p>Build long-term calm habits for school success.</p>
+      </article>
+    </div>
+  </section>
+  <p class="footer">© 2026 Calm Garden | Stress Less, Grow More 🌿</p>
+</main>
+<aside class="right-panel" aria-label="Support panel">
+  <div class="check-panel">
+    <p class="eyebrow">Quick check-in</p>
+    <h3>How are you feeling?</h3>
+    <div class="mood-options">
+      <button class="mood-chip" type="button">😌 Calm</button>
+      <button class="mood-chip" type="button">🙂 Okay</button>
+      <button class="mood-chip" type="button">😟 Stressed</button>
+    </div>
+  </div>
+
+  <div class="tip-card">
+    <h3>Today’s calm tip</h3>
+    <p>Take one slow breath before starting a task. It helps your brain feel safer and more focused.</p>
+  </div>
+
+  <div class="donation-card">
+    <div class="emoji">🤗</div>
+    <h3>Support With Donations</h3>
+    <p>Your support can help Calm Garden grow with better resources and features.</p>
+  </div>
+</aside>
 </div>
-
-<div class="plant-box">
-    <div class="plant">🪴</div>
-    <h2>Your Stress Plant</h2>
-    <p>Take care of your mind and watch your garden grow.</p>
-</div>
-
-</section>
-
-<section>
-
-<h2 class="section-title">How Calm Garden Helps You</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>😌 Daily Stress Check-In</h3>
-<p>Track how stressed you feel every day and understand your emotions better.</p>
-</div>
-
-<div class="card">
-<h3>🌬️ Breathing Exercises</h3>
-<p>Use guided breathing to calm anxiety before class, tests or presentations.</p>
-</div>
-
-<div class="card">
-<h3>📓 Stress Journal</h3>
-<p>Write thoughts, worries and feelings to release emotional pressure.</p>
-</div>
-
-<div class="card">
-<h3>🎵 Relaxing Sounds</h3>
-<p>Listen to rain, ocean or forest sounds while studying or resting.</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="section-title">Stress Management Techniques for School</h2>
-
-<ul class="school-list">
-
-<li>📚 Break assignments into smaller tasks to reduce overwhelm.</li>
-<li>🧘 Take 5-minute breathing breaks between study sessions.</li>
-<li>⏰ Use a timetable to organise homework and deadlines.</li>
-<li>💧 Stay hydrated and eat healthy meals during busy school days.</li>
-<li>😴 Get enough sleep before exams for better concentration.</li>
-<li>🚶 Take short walks after class to clear your mind.</li>
-<li>🤝 Talk to teachers, friends or family when feeling stressed.</li>
-
-</ul>
-
-
-<h2 class="section-title">Grow With Every Step 🌱</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🌱 Beginner</h3>
-<p>Start with one healthy habit daily.</p>
-</div>
-
-<div class="card">
-<h3>🌷 Progress</h3>
-<p>Your plant blooms as you stay consistent.</p>
-</div>
-
-<div class="card">
-<h3>🌳 Thrive</h3>
-<p>Build long-term calm habits for school success.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-<div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-  <span>© 2026 Calm Garden | Stress Less, Grow More</span>
-  <img src="Calm Gargen Logo.png" alt="Calm Garden logo" style="height: 40px;">
-</div>
-</footer>
 
 </body>
 </html>
