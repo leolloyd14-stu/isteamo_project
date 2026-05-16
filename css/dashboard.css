@@ -32,7 +32,7 @@ body{
   color:var(--text);
   background:
     linear-gradient(135deg, rgba(238,248,237,.96), rgba(222,243,218,.92)),
-    url("../Calm Gargen Logo.png");
+    url("Calm Gargen Logo.png");
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
