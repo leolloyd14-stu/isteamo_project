@@ -36,7 +36,7 @@
   <header class="topbar">
     <div>
       <p class="eyebrow">Student wellness dashboard</p>
-      <h1 class="page-title">Welcome back to Calm Garden</h1>
+      <h1 class="page-title">Welcome to Calm Garden</h1>
       <p class="page-subtitle">A peaceful place to manage school stress, practise calming habits, and grow your virtual plant.</p>
     </div>
     <div class="status-pill">Live MVP</div>
@@ -152,10 +152,11 @@
     <p class="eyebrow">Quick check-in</p>
     <h3>How are you feeling?</h3>
     <div class="mood-options">
-      <button class="mood-chip" type="button">😌 Calm</button>
-      <button class="mood-chip" type="button">🙂 Okay</button>
-      <button class="mood-chip" type="button">😟 Stressed</button>
+      <button class="mood-chip" type="button" onclick="showMoodMessage('calm')">😌 Calm</button>
+      <button class="mood-chip" type="button" onclick="showMoodMessage('okay')">🙂 Okay</button>
+      <button class="mood-chip" type="button" onclick="showMoodMessage('stressed')">😟 Stressed</button>
     </div>
+    <p id="moodMessage"></p>
   </div>
 
   <div class="tip-card">
@@ -168,6 +169,7 @@
     <h3>Support With Donations</h3>
     <p>Your support can help Calm Garden grow with better resources and features.</p>
   </div>
+  <script src="js/script.js"></script>
 </aside>
 </div>
 

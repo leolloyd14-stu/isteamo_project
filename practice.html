@@ -142,9 +142,10 @@
     <p class="eyebrow">Quick check-in</p>
     <h3>How are you feeling?</h3>
     <div class="mood-options">
-      <button class="mood-chip" type="button">😌 Calm</button>
-      <button class="mood-chip" type="button">🙂 Okay</button>
-      <button class="mood-chip" type="button">😟 Stressed</button>
+     <button  onclick="showMoodMessage('calm')" class="mood-chip" type="button">😌 Calm</button>
+      <button  onclick="showMoodMessage('okay')" class="mood-chip" type="button">🙂 Okay</button>
+      <button onclick="showMoodMessage('stressed')" class="mood-chip" type="button">😟 Stressed</button>
+      <p id="moodMessage"></p>
     </div>
   </div>
 
@@ -158,6 +159,7 @@
     <h3>Support With Donations</h3>
     <p>Your support can help Calm Garden grow with better resources and features.</p>
   </div>
+  <script src="js/script.js"></script>
 </aside>
 </div>
 <script src="js/practice.js"></script>

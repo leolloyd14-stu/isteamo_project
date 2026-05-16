@@ -80,9 +80,10 @@
     <p class="eyebrow">Quick check-in</p>
     <h3>How are you feeling?</h3>
     <div class="mood-options">
-      <button class="mood-chip" type="button">😌 Calm</button>
-      <button class="mood-chip" type="button">🙂 Okay</button>
-      <button class="mood-chip" type="button">😟 Stressed</button>
+      <button class="mood-chip" type="button" onclick="showMoodMessage('calm')">😌 Calm</button>
+      <button class="mood-chip" type="button" onclick="showMoodMessage('okay')">🙂 Okay</button>
+      <button class="mood-chip" type="button" onclick="showMoodMessage('stressed')">😟 Stressed</button>
+      <p id="moodMessage"></p>
     </div>
   </div>
 
@@ -96,6 +97,7 @@
     <h3>Support With Donations</h3>
     <p>Your support can help Calm Garden grow with better resources and features.</p>
   </div>
+  <script src="js/script.js"></script>    
 </aside>
 </div>
 <script src="js/ai.js"></script>
