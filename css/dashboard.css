@@ -609,6 +609,7 @@ audio{
   background:var(--mint-soft);
   align-self:flex-start;
   color:var(--green-dark);
+  padding-top: 0;
 }
 
 .user-message{
@@ -632,8 +633,9 @@ audio{
   color:var(--green-dark);
   padding:10px 13px;
   border-radius:999px;
-  font-weight:800;
+  font-weight:500;
   cursor:pointer;
+  flex-wrap: nowrap;
 }
 
 .quick-prompts button:hover{
