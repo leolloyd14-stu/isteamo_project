@@ -31,9 +31,9 @@ body{
   min-height:100vh;
   color:var(--text);
   background:
-    linear-gradient(135deg, rgba(238,248,237,.96), rgba(222,243,218,.92)),
-    url("Calm Gargen Logo.png");
+    linear-gradient(135deg, rgba(238,248,237,.96), rgba(222,243,218,.92));
   background-size:cover;
+  background-repeat: no-repeat;
   background-position:center;
   background-attachment:fixed;
   line-height:1.6;
