@@ -1,5 +1,3 @@
-const API_URL = "https://isteamo-project.onrender.com/chat";
-
 function showMoodMessage(mood) {
   const messageBox = document.getElementById("moodMessage");
 
