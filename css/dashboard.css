@@ -569,10 +569,61 @@ audio{
   border:1px solid var(--line);
   border-radius:var(--radius-xl);
   box-shadow:var(--shadow);
+  position: relative;
   overflow:hidden;
   display:flex;
   flex-direction:column;
+  background-image: url('chatboxbackground.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+
+.support-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.support-bg span {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0.18;
+  animation: floatSupport 14s infinite ease-in-out;
+}
+
+.support-bg span:nth-child(1) {
+  left: 12%;
+  top: 75%;
+  animation-delay: 0s;
+}
+
+.support-bg span:nth-child(2) {
+  left: 30%;
+  top: 85%;
+  animation-delay: 2s;
+}
+
+.support-bg span:nth-child(3) {
+  left: 55%;
+  top: 78%;
+  animation-delay: 4s;
+}
+
+.support-bg span:nth-child(4) {
+  left: 72%;
+  top: 88%;
+  animation-delay: 6s;
+}
+
+.support-bg span:nth-child(5) {
+  left: 88%;
+  top: 80%;
+  animation-delay: 8s;
+}
+
 
 .chat-header{
   padding:22px;
@@ -788,5 +839,25 @@ audio{
 
   .chat-input-area button{
     width:100%;
+  }
+}
+@keyframes floatSupport {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.18;
+  }
+
+  50% {
+    transform: translateY(-180px) scale(1.15);
+    opacity: 0.22;
+  }
+
+  100% {
+    transform: translateY(-360px) scale(0.9);
+    opacity: 0;
   }
 }
