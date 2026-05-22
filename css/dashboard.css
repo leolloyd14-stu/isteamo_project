@@ -579,6 +579,77 @@ audio{
   background-repeat: no-repeat;
 }
 
+.video-practice-section {
+  margin-top: 40px;
+}
+
+.video-section-heading {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.video-section-heading h2 {
+  color:var(--green-dark);
+  font-size: 50px;
+  text-align:center
+}
+
+.video-section-heading p {
+ color: #55745b;
+  max-width: 720px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.video-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 18px;
+  color: #244d2c;
+  box-shadow: 0 14px 35px rgba(47, 82, 51, 0.1);
+  border: 1px solid rgba(47, 82, 51, 0.08);
+}
+
+.video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #d8f3dc;
+  margin-bottom: 16px;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.video-card p {
+  color: #5e7563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-section-heading h2 {
+    font-size: 3rem;
+    letter-spacing: -1px;
+  }
+}
 
 .support-bg {
   position: absolute;
